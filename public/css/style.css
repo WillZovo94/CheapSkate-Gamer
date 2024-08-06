@@ -22,3 +22,342 @@ header, .project:not(:last-child) {
   font-weight: bold;
   margin-left: -5px;
 }
+body {
+  background-color: white;
+  margin: 0;
+  font-family:Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+}
+
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #508C9B;
+  background: linear-gradient(#508c9b, #134B70 85%);
+  height: 120px;
+  border-bottom: 3px solid #508C9B;
+}
+
+#header-name {
+  margin: 0;
+  padding: 0;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-size: 40px;
+  text-align: center;
+  transition: color 0.6s;
+  cursor: default;
+}
+
+#header-name:hover {
+  color: gold;
+}
+
+#header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 100%;
+  margin-right: 3px;
+}
+
+#active-user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+#logout-btn {
+  position: relative;
+  left: 75px;
+  height: 25px;
+  width: 100px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: black;
+  font-weight: bolder;
+  font-size: 15px;
+  background-color: white;
+  background-image: linear-gradient(to left, white 40%, gold 60%);
+  background-size: 300% 100%;
+  background-position: 100%;
+  transition: background-position 1s,
+  color 1s,
+  box-shadow 1s;
+}
+
+#logout-btn:hover {
+  background-position: 0%;
+  color: white;
+  box-shadow: 0 0 5px 5px white;
+  opacity: 0.8;
+}
+
+#header-left {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 100%;
+  border-radius: 50px 50px 0px 0;
+  animation: shadow 10s infinite;
+  box-shadow: inset 0px 0px 30px white;
+  margin-left: 5px;
+}
+
+@keyframes shadow {
+  0% {
+      box-shadow: inset 0px 0px 30px green;
+  }
+  25% {
+      box-shadow: inset 0px 0px 30px blue;
+  }
+  50% {
+      box-shadow: inset 0px 0px 30px red;
+  }
+  75% {
+      box-shadow: inset 0px 0px 30px blue;
+  }
+  100% {
+      box-shadow: inset 0px 0px 30px green;
+  }
+
+}
+
+
+
+#profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: white;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+#profile-pic:hover {
+  opacity: 0.8;
+}
+
+#profile-pic:active {
+  opacity: 0.5;
+}
+
+#username {
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+#username:hover {
+  opacity: 0.8;
+}
+
+#username:active {
+  opacity: 0.5;
+}
+
+#footer {
+  display: flex;
+  position: sticky;
+  top: 100%;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #508C9B;
+  background: linear-gradient(#134B70, #508c9b);
+  height: 200px;
+  border-top: 3px solid #508c9b;
+}
+
+/* Animation CSS */
+
+#remote-center {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  width: 85px;
+  background-color: rgb(231, 231, 231);
+  height: 45px;
+  z-index: 10;
+}
+
+#double-btn {
+  position: relative;
+  background-color: grey;
+  top: 28px;
+  left: -5px;
+  width: 4px;
+  height: 12px;
+  border-radius: 5px;
+  z-index: 10;
+  transform: rotate(30deg);
+}
+
+#double-btn-2 {
+  position: relative;
+  background-color: grey;
+  top: 28px;
+  left: 5px;
+  width: 4px;
+  height: 12px;
+  border-radius: 5px;
+  z-index: 10;
+  transform: rotate(30deg);
+}
+
+#remote-left {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  left: -34px;
+  top: 0px;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  background-color: rgb(231, 231, 231);
+  z-index: 5;
+}
+
+#left-cir {
+  position: absolute;
+  background-color: rgb(231, 231, 231);
+  height: 40px;
+  width: 40px;
+  border: 1px solid grey;
+  border-radius: 50%;
+}
+
+#vert-btn {
+  position: relative;
+  width: 8px;
+  height: 23px;
+  background-color: black;
+}
+
+#horiz-btn {
+  position: absolute;
+  width: 24px;
+  height: 8px;
+  background-color: black;
+}
+
+#remote-right {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  right: -34px;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  background-color: rgb(231, 231, 231);
+  z-index: 5;
+}
+
+#right-cir {
+  position: relative;
+  background-color: rgb(160, 160, 160);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+#btn-layout-1 {
+  position: absolute;
+  background-color: white;
+  top: 11px;
+  left: 22px;
+  width: 10px;
+  height: 28px;
+  border-radius: 25px;
+  z-index: 5;
+  transform: rotate(58deg);
+}
+
+#btn-layout-2 {
+  position: absolute;
+  background-color: white;
+  top: 24px;
+  left: 30px;
+  width: 10px;
+  height: 28px;
+  border-radius: 25px;
+  z-index: 5;
+  transform: rotate(58deg);
+}
+
+#layout1-btn1 {
+  position: absolute;
+  border-radius: 50%;
+  top: 25px;
+  left: 15px;
+  background-color: rgb(11, 173, 11);
+  width: 9px;
+  height: 9px;
+  z-index: 6;
+}
+
+#layout1-btn2 {
+  position: absolute;
+  border-radius: 50%;
+  top: 16px;
+  left: 29px;
+  background-color: rgb(220, 178, 242);
+  width: 9px;
+  height: 9px;
+  z-index: 6;
+}
+
+#layout2-btn1 {
+  position: absolute;
+  border-radius: 50%;
+  top: 38px;
+  left: 24px;
+  background-color: rgb(230, 230, 3);
+  width: 9px;
+  height: 9px;
+  z-index: 6;
+}
+
+#layout2-btn2 {
+  position: absolute;
+  border-radius: 50%;
+  top: 29px;
+  left: 38px;
+  background-color: red;
+  width: 9px;
+  height: 9px;
+  z-index: 6;
+}
+
+#login-btn {
+  height: 40px;
+  width: 100px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: black;
+  font-weight: bolder;
+  font-size: 15px;
+  background-color: white;
+  background-image: linear-gradient(to left, white 40%, gold 60%);
+  background-size: 300% 100%;
+  background-position: 100%;
+  transition: background-position 1s,
+  color 1s,
+  box-shadow 1s;
+}
+
+#login-btn:hover {
+  background-position: 0%;
+  color: white;
+  box-shadow: 0 0 5px 5px white;
+  opacity: 0.8;
+}
