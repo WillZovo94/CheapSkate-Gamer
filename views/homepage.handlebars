@@ -1,5 +1,48 @@
-<!-- Loop over each object in the projects array -->
-{{#each projects as |project| }}
+<div>
+  <div>
+    <img src="{{thumbnail}}" alt="featured Game"/>
+    <h2>Featured Game of the Day</h2>
+  </div>
+  <div>
+    <p>Search for a game to play</p>
+    <form class="search-form">
+      <div>
+        <label for="title-search">Game name:</label>
+        <input type="text" id="name-search">
+      </div>
+      <div>
+        <label for="genre-search">Genre type:</label>
+        <select name="genre" id="genre-search">
+          <option value="">--Select genre option--</option>
+          <option value="MMORPG">MMORPG</option>
+          <option value="Shooter">Shooter</option>
+          <option value="Action RPG">Action RPG</option>
+          <option value="MOBA">MOBA</option>
+          <option value="Anime">Anime</option>
+          <option value="Battle Royal">Battle Royal</option>
+          <option value="Strategy">Strategy</option>
+          <option value="Fantasy">Fantasy</option>
+          <option value="Sci-Fi">Sci-Fi</option>
+          <option value="Card Game">Card Games</option>
+          <option value="Racing">Racing</option>
+          <option value="Fighting">Fighting</option>
+          <option value="Social">Social</option>
+          <option value="Sports">Sports</option>
+        </select>
+      </div>
+      <div>
+        <button type="submit">Find Game</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="./homepage.js"></script>
+
+
+
+
+{{!-- {{#each projects as |project| }}
 <div class="row mb-4 project">
   <div class="col-md-5">
     <h2>
@@ -21,4 +64,4 @@
     </p>
   </div>
 </div>
-{{/each}}
+{{/each}} --}}

@@ -1,25 +1,27 @@
 const router = require('express').Router();
-const { Project, User } = require('../models');
+const { User, Game } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
-    const projectData = await Project.findAll({
+    const gamesData = await Game.findAll({
       include: [
         {
           model: User,
-          attributes: ['name'],
         },
       ],
     });
 
     // Serialize data so the template can read it
-    const projects = projectData.map((project) => project.get({ plain: true }));
+    const randnum = Math.floor(Math.random() * Games.length) // get random number for displaying random game image.
+    const games = gamesData.map((project) => project.get({ plain: true }));
+
+    const randgame = games[randnum]
 
     // Pass serialized data and session flag into template
     res.render('homepage', { 
-      projects, 
+      ...randgame,
       logged_in: req.session.logged_in 
     });
   } catch (err) {
@@ -27,27 +29,50 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/project/:id', async (req, res) => {
+// Used when Finding a single game using title search on homepage
+router.get('/game/:id', async (req, res) => {
   try {
-    const projectData = await Project.findByPk(req.params.id, {
+    const gameData = await Game.findByPk(req.params.id, {
       include: [
         {
-          model: User,
-          attributes: ['name'],
+          model: Review,
+        },
+        {
+          model: Comment
         },
       ],
     });
 
-    const project = projectData.get({ plain: true });
+    const game = gameData.get({ plain: true });
 
-    res.render('project', {
-      ...project,
+    res.render('gamepage', {
+      ...game,
       logged_in: req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
+router.get('/game/:genre', async (req, res) => {
+  try {
+    const gameData = await Game.findAll({
+      where: req.params.genre,
+      order: ['title', 'ASC'],
+      raw: true,
+   });
+
+   const fiveGame = gameData.splice(0,4);
+
+   res.render('genreGames', {
+    ...fiveGame,
+    logged_in: req.session.logged_in
+   });
+
+  } catch (err) {
+    res.status(500).json(err)
+  }
+})
 
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {
