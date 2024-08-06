@@ -1,13 +1,56 @@
 const User = require('./User');
-const Project = require('./Project');
+const Games = require('./Games');
+const Reviews = require('./Reviews');
+const Comments = require('./Comments');
 
-User.hasMany(Project, {
+// Creates a relationship between User and Games model, with a "has many" relationship of the User to the Games.
+User.hasMany(Games, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE'
 });
 
-Project.belongsTo(User, {
-  foreignKey: 'user_id'
+// Creates a relationship between User and Reviews model, with a "has many" relationship of the User to the Reviews.
+User.hasMany(Reviews, {
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE'
 });
 
-module.exports = { User, Project };
+// Creates a relationship between Games and User model, with a "belongs to" relationship of the Games to the User.
+// If we pull the entire database from the api we probably won't need this association.
+// User can still have many Games but Games won't need to belong to a specific User.
+Games.belongsTo(User, {
+  foreignKey: 'user_id',
+    onDelete: 'CASCADE'
+});
+
+// Creates a relationship between Games and Reviews model, with a "has many" relationship of the Reviews to the Games.
+Games.hasMany(Reviews, {
+  foreignKey: 'games_id',
+    onDelete: 'CASCADE'
+});
+
+// Creates a relationship between Reviews and Games model, with a "belongs to" relationship of the Reviews to the Games.
+Reviews.belongsTo(Games, {
+  foreignKey: 'games_id',
+    onDelete: 'CASCADE'
+});
+
+// Creates a relationship between Reviews and User model, with a "belongs to" relationship of the Reviews to the User.
+Reviews.belongsTo(User, {
+  foreignKey: 'user_id',
+    onDelete: 'CASCADE'
+});
+
+// Creates a relationship between Reviews and Comments model, with a "has many" relationship of the Comments to the Reviews.
+Reviews.hasMany(Comments, {
+  foreignKey: 'reviews_id',
+    onDelete: 'CASCADE'
+});
+
+// Creates a relationship between Comments and Reviews model, with a "belongs to" relationship of the Comments to the Reviews.
+Comments.belongsTo(Reviews, {
+  foreignKey: 'reviews_id',
+    onDelete: 'CASCADE'
+});
+
+module.exports = { User, Games, Reviews, Comments };
