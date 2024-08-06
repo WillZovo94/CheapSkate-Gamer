@@ -1,0 +1,29 @@
+[
+  {
+    "api_id": 217,
+    "title": "Smite",
+    "thumbnail": "https://www.freetogame.com/g/217/thumbnail.jpg",
+    "url": "https://www.freetogame.com/smite",
+    "genre": "MOBA",
+    "short_description": "A popular free-to-play 3D MOBA where you take on the role of an ancient god.",
+    "user_id": 1
+  },
+  {
+    "api_id": 23,
+    "title": "Apex Legends",
+    "thumbnail": "https://www.freetogame.com/g/23/thumbnail.jpg",
+    "url": "https://www.freetogame.com/apex-legend",
+    "genre": "Shooter",
+    "short_description": "A free-to-play strategic battle royale game featuring 60-player matches and team-based play.",
+    "user_id": 2
+  },
+  {
+    "api_id": 568,
+    "title": "Warhammer 40,000: Warpforge",
+    "thumbnail": "https://www.freetogame.com/g/568/thumbnail.jpg",
+    "url": "https://www.freetogame.com/warhammer-40000-warpforge",
+    "genre": "Card",
+    "short_description": "A free-to-play CCG set in the Warhammer 40K universe.",
+    "user_id": 3
+  }
+]
