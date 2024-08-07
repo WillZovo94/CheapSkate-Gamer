@@ -1,23 +1,16 @@
 const router = require('express').Router();
-const { User, Game } = require('../models');
+const { User, Games, Reviews, Comments } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    // Get all projects and JOIN with user data
-    const gamesData = await Game.findAll({
-      include: [
-        {
-          model: User,
-        },
-      ],
-    });
+    const gamesData = await Games.findAll();
 
-    // Serialize data so the template can read it
-    const randnum = Math.floor(Math.random() * Games.length) // get random number for displaying random game image.
-    const games = gamesData.map((project) => project.get({ plain: true }));
+    const games = gamesData.map((game) => game.get({ plain: true }));
+    // get random number for displaying random game image.
+    const randnum = Math.floor(Math.random() * games.length);
 
-    const randgame = games[randnum]
+    const randgame = games[randnum];
 
     // Pass serialized data and session flag into template
     res.render('homepage', { 
@@ -32,20 +25,20 @@ router.get('/', async (req, res) => {
 // Used when Finding a single game using title search on homepage
 router.get('/game/:id', async (req, res) => {
   try {
-    const gameData = await Game.findByPk(req.params.id, {
+    const gameData = await Games.findByPk(req.params.id, {
       include: [
         {
-          model: Review,
+          model: Reviews,
         },
         {
-          model: Comment
+          model: Comments
         },
       ],
     });
 
     const game = gameData.get({ plain: true });
 
-    res.render('gamepage', {
+    res.render('gamePage', {
       ...game,
       logged_in: req.session.logged_in
     });

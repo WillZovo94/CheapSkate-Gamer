@@ -1,67 +1,53 @@
-<div>
-  <div>
-    <img src="{{thumbnail}}" alt="featured Game"/>
-    <h2>Featured Game of the Day</h2>
+<div style="text-align:center">
+  <div class="card">
+    <header class="card-header">
+      <h2>Random game suggestion</h2>
+    </header>
+    <div class="card-image">
+      <img src="{{thumbnail}}" alt="Random Game" />
+    </div>
+    <div class="card-content">
+      <h3>Game Title: {{title}}</h3>
+      <p>{{short_description}}</p>
+    </div>
   </div>
   <div>
-    <p>Search for a game to play</p>
-    <form class="search-form">
-      <div>
-        <label for="title-search">Game name:</label>
-        <input type="text" id="name-search">
-      </div>
-      <div>
-        <label for="genre-search">Genre type:</label>
-        <select name="genre" id="genre-search">
-          <option value="">--Select genre option--</option>
-          <option value="MMORPG">MMORPG</option>
-          <option value="Shooter">Shooter</option>
-          <option value="Action RPG">Action RPG</option>
-          <option value="MOBA">MOBA</option>
-          <option value="Anime">Anime</option>
-          <option value="Battle Royal">Battle Royal</option>
-          <option value="Strategy">Strategy</option>
-          <option value="Fantasy">Fantasy</option>
-          <option value="Sci-Fi">Sci-Fi</option>
-          <option value="Card Game">Card Games</option>
-          <option value="Racing">Racing</option>
-          <option value="Fighting">Fighting</option>
-          <option value="Social">Social</option>
-          <option value="Sports">Sports</option>
-        </select>
-      </div>
-      <div>
-        <button type="submit">Find Game</button>
+    <h3>Search for a game to play</h3>
+    <form class="title-form">
+      <div class="field">
+        <label class="label" for="title-search">Game name:</label>
+        <div class="control">
+          <input class="input" type="text" id="title-search" placeholder="Apex Legends">
+          <button class="button is-primary" type="submit">Find Game</button>
+        </div>
       </div>
     </form>
+      <form class="genre-form">
+        <div class="field">
+          <label class="label" for="genre-search">Genre type:</label>
+          <div class="control select">
+            <select name="genre" id="genre-search">
+              <option value="">---Select genre---</option>
+              <option value="MMORPG">MMORPG</option>
+              <option value="Shooter">Shooter</option>
+              <option value="Action RPG">Action RPG</option>
+              <option value="MOBA">MOBA</option>
+              <option value="Anime">Anime</option>
+              <option value="Battle Royal">Battle Royal</option>
+              <option value="Strategy">Strategy</option>
+              <option value="Fantasy">Fantasy</option>
+              <option value="Sci-Fi">Sci-Fi</option>
+              <option value="Card Game">Card Games</option>
+              <option value="Racing">Racing</option>
+              <option value="Fighting">Fighting</option>
+              <option value="Social">Social</option>
+              <option value="Sports">Sports</option>
+            </select>
+            <button type="submit">Find Games</button>
+          </div>
+        </div>
+      </form>
   </div>
 </div>
 
 <script src="./homepage.js"></script>
-
-
-
-
-{{!-- {{#each projects as |project| }}
-<div class="row mb-4 project">
-  <div class="col-md-5">
-    <h2>
-      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-      {{{get_emoji}}}
-      <a href="/project/{{project.id}}">{{project.name}}</a>
-    </h2>
-    <p>
-      <span for="img" aria-label="money">💲</span>
-      <!-- Pass needed_funding value to the helper function -->
-      <span class="dollar-amount">{{format_amount project.needed_funding}}</span>
-      needed!
-    </p>
-    <p>Created by {{project.user.name}} on {{format_date project.date_created}}</p>
-  </div>
-  <div class="col-md-7">
-    <p>
-      {{project.description}}
-    </p>
-  </div>
-</div>
-{{/each}} --}}
