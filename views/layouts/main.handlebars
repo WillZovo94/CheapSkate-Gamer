@@ -7,6 +7,8 @@
   <title>CheapSkate Gamer</title>
   <link rel="stylesheet" href="javascript.js">
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/login.css">
+
 </head>
 
 <body>
@@ -38,7 +40,7 @@
           {{#if logged_in}}
           <div id="active-user">
             <div id="profile-pic"></div>
-            <h2 id="username">Username</h2>
+            <h2 id="username">{{name}}</h2>
           </div>
             <button id="logout-btn">Logout</button>
           {{else}}
@@ -55,11 +57,14 @@
     </footer>
   </div>
 
-      {{#if logged_in}}
+    {{#if logged_in}}
     <script src="/js/logout.js"></script>
     {{/if}}
 
 
 </body>
 
+    <script src="/js/login.js"></script>
+
 </html>
+

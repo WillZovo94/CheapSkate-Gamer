@@ -166,6 +166,7 @@ body {
 #footer {
   display: flex;
   position: sticky;
+  margin-top: 100px;
   top: 100%;
   align-items: center;
   justify-content: space-around;
