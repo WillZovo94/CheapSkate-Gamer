@@ -49,7 +49,7 @@ router.get('/game/:id', async (req, res) => {
 
 router.get('/game/:genre', async (req, res) => {
   try {
-    const gameData = await Game.findAll({
+    const gameData = await Games.findAll({
       where: req.params.genre,
       order: ['title', 'ASC'],
       raw: true,
