@@ -48,6 +48,24 @@ router.post('/login', async (req, res) => {
   }
 });
 
+router.post('/signup', (req, res) => {
+  const { username, email, password } = req.body;
+
+  if (!username || !email || !password) {
+    return res.status(400).json({ error: 'Missing a requirement!' })
+  }
+
+  const hashedPassword = bcrypt.hashSync(password, 10);
+
+  User.create({ username, email, password: hashedPassword })
+    .then(user => {
+      res.status(201).json({ message: 'User created successfully!' });
+    })
+    .catch(err => {
+      res.status(500).json({ error: 'Failed to craete user' })
+    })
+})
+
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {

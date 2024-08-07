@@ -38,7 +38,7 @@
           {{#if logged_in}}
           <div id="active-user">
             <div id="profile-pic"></div>
-            <h2 id="username">{{name}}</h2>
+            <h2 id="username">{{user.username}}</h2>
           </div>
             <button id="logout-btn">Logout</button>
           {{else}}
@@ -55,7 +55,6 @@
     </footer>
   </div>
 
-  <!-- Render script for logged in users only -->
       {{#if logged_in}}
     <script src="/js/logout.js"></script>
     {{/if}}
