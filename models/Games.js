@@ -32,16 +32,17 @@ Games.init(
       allowNull: false,
     },
     short_description: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
-    user_id: { // If we pull the entire database from the api we probably won't need this
+    /* If we pull the entire database from the api we probably won't need this
+    user_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'user',
         key: 'id',
       },
-    },
+    }, */
   },
   {
     sequelize,

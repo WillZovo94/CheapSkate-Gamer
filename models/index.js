@@ -15,13 +15,13 @@ User.hasMany(Reviews, {
   onDelete: 'CASCADE'
 });
 
+/* If we pull the entire database from the api we probably won't need this association.
+/ User can still have many Games but Games won't need to belong to a specific User.
 // Creates a relationship between Games and User model, with a "belongs to" relationship of the Games to the User.
-// If we pull the entire database from the api we probably won't need this association.
-// User can still have many Games but Games won't need to belong to a specific User.
 Games.belongsTo(User, {
   foreignKey: 'user_id',
     onDelete: 'CASCADE'
-});
+}); */
 
 // Creates a relationship between Games and Reviews model, with a "has many" relationship of the Reviews to the Games.
 Games.hasMany(Reviews, {
