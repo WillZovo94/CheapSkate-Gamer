@@ -4,41 +4,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fund My Project!</title>
-  <link rel="stylesheet" href="/css/jass.css">
+  <title>CheapSkate Gamer</title>
+  <link rel="stylesheet" href="javascript.js">
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/login.css">
+
 </head>
 
 <body>
-  <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
-      <h1>
-        <span role="img" aria-label="money">💸</span>
-        <a href="/">Fund My Project!</a>
-      </h1>
-      <nav>
-        <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
-        <a href="/profile">profile</a> |
-        <button class="no-button" id="logout">logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
-      </nav>
+    <header id="header">
+        <div id="header-left">
+            <!-- Animation Purposes -->
+                <div id="remote-center">
+                    <div id="double-btn"></div>
+                    <div id="double-btn-2"></div>
+                    <div id="remote-left">
+                        <div id="left-cir"></div>
+                        <div id="vert-btn"></div>
+                        <div id="horiz-btn"></div>
+                    </div>
+                    <div id="remote-right">
+                        <div id="btn-layout-1"></div>
+                        <div id="layout1-btn1"></div>
+                        <div id="layout1-btn2"></div>
+                        <div id="btn-layout-2"></div>
+                        <div id="layout2-btn1"></div>
+                        <div id="layout2-btn2"></div>
+                        <div id="right-cir"></div>
+                    </div>
+
+                </div>
+        </div>
+        <h1 id="header-name">CheapSkate Gamer</h1>
+        <div id="header-right">
+          {{#if logged_in}}
+          <div id="active-user">
+            <div id="profile-pic"></div>
+            <h2 id="username">{{name}}</h2>
+          </div>
+            <button id="logout-btn">Logout</button>
+          {{else}}
+            <a href="/login"><button id="login-btn">Login</button></a>
+          {{/if}}
+        </div>
     </header>
     <main class="container container-fluid mt-5">
       <!-- Render the sub layout -->
       {{{ body }}}
     </main>
-    <footer>
+    <footer id="footer">
       
     </footer>
   </div>
 
-  <!-- Render script for logged in users only -->
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{/if}}
+
+
 </body>
 
+    <script src="/js/login.js"></script>
+
 </html>
+

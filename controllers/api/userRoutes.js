@@ -39,7 +39,7 @@ router.post('/login', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-      
+            
       res.json({ user: userData, message: 'You are now logged in!' });
     });
 
@@ -47,6 +47,24 @@ router.post('/login', async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+router.post('/signup', (req, res) => {
+  const { username, email, password } = req.body;
+
+  if (!username || !email || !password) {
+    return res.status(400).json({ error: 'Missing a requirement!' })
+  }
+
+  const hashedPassword = bcrypt.hashSync(password, 10);
+
+  User.create({ username, email, password: hashedPassword })
+    .then(user => {
+      res.status(201).json({ message: 'User created successfully!' });
+    })
+    .catch(err => {
+      res.status(500).json({ error: 'Failed to craete user' })
+    })
+})
 
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
