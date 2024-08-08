@@ -4,6 +4,7 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
+    console.log(req.session.logged_in , 'logged in value from get route')
     const gamesData = await Games.findAll();
 
     const games = gamesData.map((game) => game.get({ plain: true }));

@@ -4,35 +4,38 @@ const withAuth = require('../../utils/auth');
 
 // Create a new review
 // without user.id
-router.post('/', async (req, res) => {
+// router.post('/', withAuth, async (req, res) => {
+//   try {
+//     const { title, body, rating, games_id} = req.body;
+//     const newReview = await Reviews.create({
+//       title,
+//       body,
+//       rating,
+//       games_id,
+//       user_id: req.session.user_id,
+//     });
+
+//     res.status(200).json(newReview);
+//   } catch (err) {
+//     console.error('Error creating review:', err);
+//     res.status(400).json(err);
+//   }
+// });
+
+router.post('/', withAuth, async (req, res) => {
   try {
-    const { title, body, rating, games_id} = req.body;
-    console.log(games_id, " YAy");
     const newReview = await Reviews.create({
-      title,
-      body,
-      rating,
-      games_id,
+      ...req.body,
+      user_id: req.session.user_id,
     });
+
     res.status(200).json(newReview);
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
-// router.post('/:id', async (req, res) => { 
-//     try {
-//         const newReview = await Reviews.create({
-//             ...req.body,
-//             user_id: req.session.user.id,
-//         });
-//         res.status(200).json(newReview);
-//     } catch (err) {
-//         res.status(400).json(err);
-//     }
-// });
-
-// Get all review by game id
+// Get all review 
 router.get('/', async (req, res) => {
   try {
       const reviewData = await Reviews.findAll();
@@ -57,14 +60,13 @@ router.get('/:gameId', async (req, res) => {
     }
   })
 
-// Update a review
+// Update a review by game id
 router.put('/:id', async (req, res) => {
   try {
     const review = await Reviews.update(
       {...req.body},
       {where: {
         id: `${req.params.id}`
-
       }}
     )
     res.status(200).json(review);

@@ -1,4 +1,5 @@
 const loginFormHandler = async (event) => {
+  console.log('login form handler function')
   event.preventDefault();
 
   // Collect values from the login form
@@ -14,7 +15,7 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      // If successful, redirect the browser to the profile page
+      // If successful, redirect the browser to the home page
       document.location.replace('/');
     } else {
       alert(response.statusText);
@@ -37,7 +38,7 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/profile');
+      document.location.replace('/');
     } else {
       alert(response.statusText);
     }
