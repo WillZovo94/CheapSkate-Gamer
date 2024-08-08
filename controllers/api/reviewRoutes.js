@@ -3,30 +3,12 @@ const { Reviews } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // Create a new review
-// without user.id
-// router.post('/', withAuth, async (req, res) => {
-//   try {
-//     const { title, body, rating, games_id} = req.body;
-//     const newReview = await Reviews.create({
-//       title,
-//       body,
-//       rating,
-//       games_id,
-//       user_id: req.session.user_id,
-//     });
-
-//     res.status(200).json(newReview);
-//   } catch (err) {
-//     console.error('Error creating review:', err);
-//     res.status(400).json(err);
-//   }
-// });
-
-router.post('/', withAuth, async (req, res) => {
+// WORK without AUTH
+router.post('/', async (req, res) => {
   try {
     const newReview = await Reviews.create({
       ...req.body,
-      user_id: req.session.user_id,
+      // user_id: req.session.user_id,
     });
 
     res.status(200).json(newReview);
@@ -60,7 +42,7 @@ router.get('/:gameId', async (req, res) => {
     }
   })
 
-// Update a review by game id
+// Update a review by id
 router.put('/:id', async (req, res) => {
   try {
     const review = await Reviews.update(
@@ -76,19 +58,23 @@ router.put('/:id', async (req, res) => {
 
 })
 
-// Delete a review identified by id
+// Delete a review by id
+// works without auth
 router.delete('/:id', async (req, res) => {
   try {
     const reviewData = await Reviews.destroy({
       where: {
         id: req.params.id,
+        // user_id: req.session.user_id,
       },
     });
+
     if (!reviewData) {
-      res.status(404).json({ message: 'No review found with this id!' })
+      res.status(404).json({ message: 'No project found with this id!' });
       return;
     }
-    res.status(200).json({ message: 'Review deleted successfully' });
+
+    res.status(200).json(reviewData);
   } catch (err) {
     res.status(500).json(err);
   }
