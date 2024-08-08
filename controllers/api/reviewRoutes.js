@@ -13,7 +13,6 @@ router.post('/', async (req, res) => {
       body,
       rating,
       games_id,
-      user_id
     });
     res.status(200).json(newReview);
   } catch (err) {
