@@ -1,33 +1,35 @@
 <div style="text-align:center">
   <div class="card">
     <header class="card-header">
-      <h2>Random game suggestion</h2>
+      <h2 class="is-size-4 has-text-weight-bold">Random game suggestion</h2>
     </header>
     <div class="card-image">
       <img src="{{thumbnail}}" alt="Random Game" />
     </div>
     <div class="card-content">
-      <h3>Game Title: {{title}}</h3>
+      <h3 class="has-text-weight-bold">Game Title: {{title}}</h3>
       <p>{{short_description}}</p>
     </div>
   </div>
   <div>
     <h3>Search for a game to play</h3>
-    <form class="title-form">
-      <div class="field">
+    <form class="title-form my-4">
+      <div class="field has-addons" style="justify-content: center; align-items: center">
         <label class="label" for="title-search">Game name:</label>
         <div class="control">
           <input class="input" type="text" id="title-search" placeholder="Apex Legends">
+        </div>
+        <div class="control">
           <button class="button is-primary" type="submit">Find Game</button>
         </div>
       </div>
     </form>
-      <form class="genre-form">
-        <div class="field">
+      <form class="genre-form my-2">
+        <div class="field has-addons" style="justify-content: center; align-items: center">
           <label class="label" for="genre-search">Genre type:</label>
           <div class="control select">
             <select name="genre" id="genre-search">
-              <option value="">---Select genre---</option>
+              <option value="">--Select genre--</option>
               <option value="MMORPG">MMORPG</option>
               <option value="Shooter">Shooter</option>
               <option value="Action RPG">Action RPG</option>
@@ -43,11 +45,13 @@
               <option value="Social">Social</option>
               <option value="Sports">Sports</option>
             </select>
-            <button type="submit">Find Games</button>
+          </div>
+          <div class="control">
+            <button class="button is-primary" type="submit">Find Games</button>
           </div>
         </div>
       </form>
   </div>
 </div>
 
-<script src="./homepage.js"></script>
+<script src="./js/homepage.js"></script>

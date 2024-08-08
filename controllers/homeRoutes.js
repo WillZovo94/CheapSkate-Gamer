@@ -55,10 +55,22 @@ router.get('/game/:genre', async (req, res) => {
       raw: true,
    });
 
-   const fiveGame = gameData.splice(0,4);
+   let randindex = [];
+   
+   while(randindex.length < 5) {
+    
+     const randnum = Math.floor(Math.random() * gameData.length);
+
+     if(!randindex.includes(randnum)) {
+      randindex.push(randnum)
+     };
+
+   };
+
+   const randomFiveGames = [gameData[randindex[0]], gameData[randindex[1]], gameData[randindex[2]], gameData[randindex[3]], gameData[randindex[4]]];
 
    res.render('genreGames', {
-    ...fiveGame,
+    ...randomFiveGames,
     logged_in: req.session.logged_in
    });
 
