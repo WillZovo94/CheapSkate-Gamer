@@ -23,7 +23,7 @@ const handleGenreSearch = async (event) => {
     const genreSearch = document.querySelector('#genre-search').value;
 
     // takes you to a page that shows multiple games of this genre
-    document.location.replace(`/game/${genreSearch}`);
+    document.location.replace(`/api/games/genre/${genreSearch}`);
 };
 
 document.querySelector('.title-form').addEventListener('submit', handleGameSearch);
