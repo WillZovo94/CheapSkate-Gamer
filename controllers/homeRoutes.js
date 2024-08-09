@@ -4,6 +4,30 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
+    // If user is logged in finds the user data to display on the page
+    if (req.session.logged_in) {
+      const userData = await User.findByPk(req.session.user_id, {
+        raw: true,
+        attributes: { exclude: ['password'] }
+      });
+
+      const gamesData = await Games.findAll();
+
+      const games = gamesData.map((game) => game.get({ plain: true }));
+      // get random number for displaying random game image.
+      const randnum = Math.floor(Math.random() * games.length);
+
+      const randgame = games[randnum];
+
+      // Pass serialized data and session flag into template
+      res.render('homepage', {
+        ...randgame,
+        ...userData,
+        logged_in: req.session.logged_in
+      });
+    };
+
+    // If user is not logged in don't need to find user data
     const gamesData = await Games.findAll();
 
     const games = gamesData.map((game) => game.get({ plain: true }));
@@ -58,7 +82,7 @@ router.get('/game/:genre', async (req, res) => {
    let randindex = [];
    
    while(randindex.length < 5) {
-    
+
      const randnum = Math.floor(Math.random() * gameData.length);
 
      if(!randindex.includes(randnum)) {
