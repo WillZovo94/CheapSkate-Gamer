@@ -49,25 +49,7 @@ router.post('/', async (req, res) => {
         res.status(500).json(err);
     };
 });
-/*
-router.post('/genre', async (req, res) => {
-    try {
-        const gameGenreSearch = await Games.findAll({
-            where: { genre: req.body.genreSearch },
-            raw: true,
-        });
-console.log (gameGenreSearch);
-        if (!gameGenreSearch) {
-            res.status(404).json({ message: 'Could not find that genre.'});
-        };
-        
-        res.status(200).json(gameGenreSearch);
-    } catch (err) {
-        res.status(500).json(err);
-        console.log(err);
-    };
-});
-*/
+
 router.get('/genre/:genre', async (req, res) => {
   try {
       const gameGenreSearch = await Games.findAll({
@@ -86,20 +68,4 @@ router.get('/genre/:genre', async (req, res) => {
   }
 });
 
-/*
-router.get('/genre', async (req, res) => {
-  try {
-    const gameGenreSearch = await Games.findOne({ where: { genre: req.params.genre } });
-
-    if (gameGenreSearch) {
-      res.status(200).json(gameGenreSearch);
-    } else {
-      res.status(404).json({ message: 'Game genre not found' });
-    }
-  } catch (err) {
-    res.status(500).json(err);
-    console.log(err);
-  }
-});
-*/
 module.exports = router;
