@@ -1,14 +1,12 @@
 const router = require('express').Router();
 const { Reviews } = require('../../models');
-const withAuth = require('../../utils/auth');
 
 // Create a new review
-// WORK without AUTH
+// works without withAuth middleware
 router.post('/', async (req, res) => {
   try {
     const newReview = await Reviews.create({
       ...req.body,
-      // user_id: req.session.user_id,
     });
 
     res.status(200).json(newReview);
@@ -17,7 +15,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Get all review 
+// Get all reviews
 router.get('/', async (req, res) => {
   try {
       const reviewData = await Reviews.findAll();
@@ -59,13 +57,12 @@ router.put('/:id', async (req, res) => {
 })
 
 // Delete a review by id
-// works without auth
+// works without withAuth middleware
 router.delete('/:id', async (req, res) => {
   try {
     const reviewData = await Reviews.destroy({
       where: {
         id: req.params.id,
-        // user_id: req.session.user_id,
       },
     });
 
