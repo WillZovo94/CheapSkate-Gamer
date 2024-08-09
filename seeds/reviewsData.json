@@ -4,20 +4,20 @@
     "body": "Smite the Gods!",
     "rating": 9,
     "user_id": 1,
-    "games_id": 1
+    "games_id": 40
   },
   {
     "title": "Fraggin' Out.",
     "body": "Another Day, Another Ace.",
     "rating": 8.5,
     "user_id": 2,
-    "games_id": 2
+    "games_id": 34
   },
   {
    "title": "Blood for the Blood God!",
     "body": "Skulls for the Skull Throne!",
     "rating": 9.4,
     "user_id": 3,
-    "games_id": 3
+    "games_id": 59
   }
 ]
