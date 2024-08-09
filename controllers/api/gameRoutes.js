@@ -68,4 +68,5 @@ console.log (gameGenreSearch);
     };
 });
 
+router.get('/')
 module.exports = router;
