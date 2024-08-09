@@ -101,7 +101,28 @@ router.get('/game/:genre', async (req, res) => {
   } catch (err) {
     res.status(500).json(err)
   }
-})
+});
+
+router.get('/genre/:genre', async (req, res) => {
+  try {
+    const gameGenreSearch = await Games.findAll({
+      where: { genre: req.params.genre },
+      raw: true,
+    });
+
+    if (gameGenreSearch.length === 0) {
+      res.status(404).json({ message: 'Could not find that genre.' });
+    } else {
+      res.render('genreGames', {
+        ...gameGenreSearch,
+        logged_in: req.session.logged_in
+      });
+    }
+  } catch (err) {
+    res.status(500).json(err);
+    console.log(err);
+  }
+});
 
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {
