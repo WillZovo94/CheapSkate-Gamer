@@ -4,7 +4,8 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    if (req.session.user_id) {
+    // If user is logged in finds the user data to display on the page
+    if (req.session.logged_in) {
       const userData = await User.findByPk(req.session.user_id, {
         raw: true,
         attributes: { exclude: ['password'] }
@@ -24,7 +25,9 @@ router.get('/', async (req, res) => {
         ...userData,
         logged_in: req.session.logged_in
       });
-    }
+    };
+
+    // If user is not logged in don't need to find user data
     const gamesData = await Games.findAll();
 
     const games = gamesData.map((game) => game.get({ plain: true }));
