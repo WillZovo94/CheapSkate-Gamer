@@ -72,7 +72,7 @@ const seedDatabase = async () => { // Seeds the database with either the stored 
 
   const liveGameList = await fetchGames();
   
- for (const games of fetchGames) {
+ for (const games of liveGameList) {
     await Games.create({games,
       api_id: games.id,
       title: games.title,
