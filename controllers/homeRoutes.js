@@ -114,7 +114,7 @@ router.get('/genre/:genre', async (req, res) => {
       res.status(404).json({ message: 'Could not find that genre.' });
     } else {
       res.render('genreGames', {
-        ...gameGenreSearch,
+        games: gameGenreSearch,
         logged_in: req.session.logged_in
       });
     }

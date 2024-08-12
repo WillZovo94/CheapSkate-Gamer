@@ -68,5 +68,21 @@ console.log (gameGenreSearch);
     };
 });
 
+router.get('/genre/:genre', async (req, res) => {
+  try {
+    const gameGenreSearch = await Games.findAll({
+      where: { genre: req.params.genre },
+      raw: true,
+    });
+
+    if (gameGenreSearch.length === 0) {
+      res.status(404).json({ message: 'Could not find that genre.' });
+    }
+  } catch (err) {
+    res.status(500).json(err);
+    console.log(err);
+  }
+});
+
 router.get('/')
 module.exports = router;
