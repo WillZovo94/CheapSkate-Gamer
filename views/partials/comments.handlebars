@@ -1,0 +1,10 @@
+<div>
+    {{#each this}}
+    <div class="card">
+        <div class="card-content">
+            <h3 class="has-text-weight-bold">{{body}}</h3>
+            <p>From {{user.username}} on {{format_date createdAt}}</p>
+        </div>
+    </div>
+    {{/each}}
+</div>

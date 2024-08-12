@@ -56,7 +56,7 @@ router.post('/genre', async (req, res) => {
             where: { genre: req.body.genreSearch },
             raw: true,
         });
-console.log (gameGenreSearch);
+
         if (!gameGenreSearch) {
             res.status(404).json({ message: 'Could not find that genre.'});
         };
