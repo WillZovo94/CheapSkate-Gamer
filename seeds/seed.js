@@ -2,9 +2,24 @@ const sequelize = require('../config/connection');
 const { User, Games, Reviews, Comments } = require('../models');
 
 const userData = require('./userData.json');
-const gamesApiData = require('./gamesApiData.json');
+//const gamesApiData = require('./gamesApiData.json'); // Used for local testing
 const reviewsData = require('./reviewsData.json');
 const commentsData = require('./commentsData.json');
+
+const fetchGames = async () => { // Fetches the full game list from the api
+  const url = "https://www.freetogame.com/api/games";
+  try {
+    const response = await fetch(url, { cache: "reload" });
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+    }
+    const json = await response.json();
+    return (json);
+    }
+  catch (error) {
+    console.error(error.message);
+  }
+}
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -14,7 +29,9 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  for (const games of gamesApiData) {
+  const liveGameList = await fetchGames();
+  
+ for (const games of liveGameList) {
     await Games.create({games,
       api_id: games.id,
       title: games.title,
@@ -41,3 +58,5 @@ const seedDatabase = async () => {
 };
 
 seedDatabase();
+
+module.exports = { seedDatabase } ;

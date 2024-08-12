@@ -1,14 +1,17 @@
 [
   {
     "body": "Buy more wards!",
+    "user_id": 3,
     "reviews_id": 1
   },
   {
     "body": "Shootey shootey bang bang.",
+    "user_id": 1,
     "reviews_id": 2
   },
   {
     "body": "Red means more dakka",
+    "user_id": 2,
     "reviews_id": 3
   }
 ]
