@@ -1,4 +1,6 @@
-
+body {
+    background-color: #201E43;
+  }
 
 .main-content {
     display: flex;
