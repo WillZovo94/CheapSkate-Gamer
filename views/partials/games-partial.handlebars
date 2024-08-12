@@ -1,0 +1,12 @@
+<div>
+    {{#each this}}
+    <div class="card">
+        <header class="card-header">
+            <h2 class="is-size-4 has-text-weight-bold">{{title}}</h2>
+        </header>
+    <div class="card-image">
+      <a href="/game/{{id}}"><img src="{{thumbnail}}" alt="{{title}}" /></a>
+    </div>
+  </div>
+      {{/each}}
+</div>

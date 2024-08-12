@@ -1,14 +1,39 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Games, Reviews, Comments } = require('../../models');
 
-// Get all users from the database
+// Get all users from the database and returns all associated data
 router.get('/', async (req, res) => {
   try {
     const storedUserData = await User.findAll({
-      attributes: { exclude: ['password'] }
+      attributes: { exclude: ['password'] },
+      include: [ { model: Games, }, { model: Reviews }, { model: Comments }, ],
     });
     const userData = storedUserData.map((users) => users.get({ plain: true }));
-    res.status(200).json({ userData });
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/:id', async (req, res) => { // Gets a single user by id
+  try {
+    const storedUserData = await User.findByPk(req.params.id, {
+      attributes: { exclude: ['password'] },
+      include: [ { model: Games, } ],
+    });
+    res.status(200).json(storedUserData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/collection/:id', async (req, res) => { // Gets the collection array by user id
+  try {
+    const storedUserData = await User.findByPk(req.params.id, {
+      attributes: { exclude: ['password'] },
+      include: [ { model: Games, } ],
+    });
+    res.status(200).json(storedUserData.collection);
   } catch (err) {
     res.status(500).json(err);
   }
