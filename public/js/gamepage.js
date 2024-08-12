@@ -1,11 +1,11 @@
 // handles submitting a new review form
 document.getElementById('new-review-form')?.addEventListener('submit', async (event) => {
     event.preventDefault();
+    console.log('testing');
   
     const title = document.getElementById('title').value.trim();
     const body = document.getElementById('body').value.trim();
     const rating = document.getElementById('rating').value;
-    const games_id = document.querySelector('input').value;
   
     if (title && body && rating) {
       const response = await fetch('/api/reviews', {
@@ -14,7 +14,7 @@ document.getElementById('new-review-form')?.addEventListener('submit', async (ev
           title,
           body,
           rating,
-          games_id
+          
         }),
         headers: { 'Content-Type': 'application/json' }
       });

@@ -1,26 +1,28 @@
 // Handles searching a game by name
 const handleGameSearch = async (event) => {
     event.preventDefault();
-    const titleSearch = document.querySelector('#title-search').value.trim();
-    console.log(titleSearch, 'titleSearch')
+    const title = document.querySelector('#title-search').value.trim();
+    console.log(title, 'titleSearch')
     const test = JSON.stringify({
-        title: titleSearch
+        title
       })
       console.log(test, ' test json obj')
 
-    const response = await fetch('/api/game', {
-        method: 'POST',
-        body: JSON.stringify({ titleSearch }),
-        headers: { 'Content-Type': 'application/json' },
-    });
+    const response = await fetch('/api/games', {
+        method: "POST",
+        body: JSON.stringify({ title }),
+        headers: {
+            'Content-Type': 'application/json',
+          }
+        });
     console.log(response, 'response')
 
     // Takes you to the game page of this specific game
     if (response.ok) {
         console.log(response, 'response is okay')
-        document.location.replace(`/game/${response.id}`);
+        document.location.replace(`../games/${response.id}`);
     } else {
-        alert(response.statusText);
+        console.log(response.statusText);
     }
 };
 

@@ -5,7 +5,7 @@
     <p>{{short_description}}</p>
     <a href="{{url}}" target="_blank">Click to play this game!</a>
     <hr>
-    <h2>Reviews</h2>
+    <h1>Reviews</h1>
     {{#each reviews}}
     <div class="review">
       <h3>Review Title: {{title}}</h3>
@@ -39,4 +39,8 @@
   {{/if}}
 </div>
 
-<script src="./js/gamepage.js"></script>
+<script src=".././js/gamepage.js"></script>
+
+{{#if logged_in}}
+<script src=".././js/logout.js"></script>
+{{/if}}
