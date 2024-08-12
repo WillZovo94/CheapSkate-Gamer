@@ -4,7 +4,7 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    console.log(req.session.logged_in , 'logged in value from get route')
+    // console.log(req.session.logged_in , 'logged in value from get route')
     const gamesData = await Games.findAll();
 
     const games = gamesData.map((game) => game.get({ plain: true }));
@@ -25,27 +25,30 @@ router.get('/', async (req, res) => {
 
 // Used when Finding a single game using title search on homepage
 router.get('/game/:id', async (req, res) => {
+  console.log(req, 'request')
   try {
     const gameData = await Games.findByPk(req.params.id, {
       include: [
         {
           model: Reviews,
         },
-        {
-          model: Comments
-        },
+        // {
+        //   model: Comments
+        // },
       ],
     });
 
     const game = gameData.get({ plain: true });
-
-    res.render('gamePage', {
+    console.log(game, 'game result')
+    res.render('gamepage', {
       ...game,
       logged_in: req.session.logged_in
     });
   } catch (err) {
+    console.log('got an error', err)
     res.status(500).json(err);
   }
+  console.log(req.params, "testing");
 });
 
 router.get('/game/:genre', async (req, res) => {

@@ -2,15 +2,22 @@
 const handleGameSearch = async (event) => {
     event.preventDefault();
     const titleSearch = document.querySelector('#title-search').value.trim();
+    console.log(titleSearch, 'titleSearch')
+    const test = JSON.stringify({
+        title: titleSearch
+      })
+      console.log(test, ' test json obj')
 
-    const response = await fetch('/api/games', {
+    const response = await fetch('/api/game', {
         method: 'POST',
         body: JSON.stringify({ titleSearch }),
-        header: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json' },
     });
+    console.log(response, 'response')
 
     // Takes you to the game page of this specific game
     if (response.ok) {
+        console.log(response, 'response is okay')
         document.location.replace(`/game/${response.id}`);
     } else {
         alert(response.statusText);
