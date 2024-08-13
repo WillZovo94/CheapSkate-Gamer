@@ -39,6 +39,12 @@ body {
   border-bottom: 3px solid #508C9B;
 }
 
+@media only screen and (max-width: 550px) {
+  #header {
+    justify-content:end; /* Further adjust the width for even smaller screens */
+  }
+}
+
 #header-name {
   margin: 0;
   padding: 0;
@@ -48,6 +54,18 @@ body {
   text-align: center;
   transition: color 0.6s;
   cursor: default;
+}
+
+@media only screen and (max-width: 768px) {
+  #header-name {
+    font-size: 30px; /* Adjust the width for smaller screens */
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  #header-name {
+    visibility: hidden; /* Further adjust the width for even smaller screens */
+  }
 }
 
 #header-name:hover {
@@ -109,6 +127,12 @@ body {
   animation: shadow 10s infinite;
   box-shadow: inset 0px 0px 30px white;
   margin-left: 5px;
+}
+
+@media only screen and (max-width: 550px) {
+  #header-left {
+    margin-left: 45px; /* Further adjust the width for even smaller screens */
+  }
 }
 
 @keyframes shadow {
@@ -363,6 +387,7 @@ body {
   opacity: 0.8;
 }
 
+
 /* GenreGames handlebar */
 #genre-game-list {
   margin: 0 auto;
@@ -377,22 +402,44 @@ body {
   color: white;
 }
 
+
+@media only screen and (max-width: 768px) {
+  #genre-game-list {
+    width: 70%; /* Adjust the width for smaller screens */
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  #genre-game-list {
+    width: 90%; /* Further adjust the width for even smaller screens */
+  }
+}
+
 #official-games {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   margin-bottom: 50px;
   padding-top: 25px;
 }
 
+#official-games a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 #official-games img {
+  display: flex;
   box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.5);
   border-radius: 2px;
   cursor: pointer;
   margin-top: 10px;
   transition:box-shadow 1s;
-
+  max-width: 80%;
 }
+
 
 #official-games img:hover {
   box-shadow: 0px 0px 5px 5px gold;
