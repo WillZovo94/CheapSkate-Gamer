@@ -2,16 +2,19 @@
   {
     "username": "Sal",
     "email": "sal@hotmail.com",
+    "collection": [40,10,55,2],
     "password": "password12345"
   },
   {
     "username": "Lernantino",
     "email": "lernantino@gmail.com",
+    "collection": [34],
     "password": "password12345"
   },
   {
     "username": "Amiko",
     "email": "amiko2k20@aol.com",
+    "collection": [59],
     "password": "password12345"
   }
 ]
