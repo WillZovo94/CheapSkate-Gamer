@@ -362,3 +362,55 @@ body {
   box-shadow: 0 0 5px 5px white;
   opacity: 0.8;
 }
+
+/* GenreGames handlebar */
+#genre-game-list {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bolder;
+  font-size: 20px;
+  background-color: #134B70;
+  box-shadow: inset 0px 0px 10px 10px #508C9B;
+  width: 50%;
+  color: white;
+}
+
+#official-games {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+  padding-top: 25px;
+}
+
+#official-games img {
+  box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.5);
+  border-radius: 2px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition:box-shadow 1s;
+
+}
+
+#official-games img:hover {
+  box-shadow: 0px 0px 5px 5px gold;
+}
+
+#official-games title {
+  cursor: pointer;
+}
+
+#genre-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+#genre-title {
+  font-weight: bolder;
+  font-size: 30px;
+  color: white;
+}

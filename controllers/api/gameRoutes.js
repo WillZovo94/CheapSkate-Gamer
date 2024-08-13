@@ -75,10 +75,8 @@ router.get('/genre/:genre', async (req, res) => {
       raw: true,
     });
 
-    if (!gameGenreSearch.length) {
+    if (gameGenreSearch.length === 0) {
       res.status(404).json({ message: 'Could not find that genre.' });
-    } else {
-      res.status(200).json(gameGenreSearch);
     }
   } catch (err) {
     res.status(500).json(err);
@@ -86,4 +84,5 @@ router.get('/genre/:genre', async (req, res) => {
   }
 });
 
+router.get('/')
 module.exports = router;
