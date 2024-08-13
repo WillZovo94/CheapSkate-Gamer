@@ -463,14 +463,15 @@ body {
 }
 
 /* Centering the content */
-.game-details {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-  background-color: #f9f9f9;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+.game-details,
+.new-review-form {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 .game-details img {
@@ -529,13 +530,6 @@ body {
 }
 
 /* Form styling */
-.new-review-form {
-  background-color: #f1f1f1;
-  padding: 20px;
-  margin-top: 40px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
 
 .new-review-form h2 {
   font-size: 1.8rem;
@@ -548,6 +542,11 @@ body {
   font-size: 1rem;
   color: #333;
   margin-bottom: 5px;
+  text-align: left;
+}
+
+.new-review-form {
+  margin-top: 30px;
   text-align: left;
 }
 
