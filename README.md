@@ -14,9 +14,9 @@ Below are screenshots showing the home page, and examples of a specific game sea
 
 ![Website home page](./assets/images/homepage-example.png)
 
-![Specific game search example](./images/)
+![Specific game search example](./assets/images/)
 
-![Genre search example](./images/)
+![Genre search example](./assets/images/)
 
 ## Credits
 
