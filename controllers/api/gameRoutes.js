@@ -44,9 +44,7 @@ router.post('/', async (req, res) => {
             res.status(404).json({ message: 'Could not find that game.'});
         };
 
-        document.location.replace(`/game/${gameData.id}`);
-        res.status(200).json(gameData.id);
-        //res.redirect(`/game/${gameData.id}`);
+        res.status(200).json(gameData)
     } catch (err) {
         res.status(500).json(err);
     };

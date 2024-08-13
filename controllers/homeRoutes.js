@@ -31,7 +31,6 @@ router.get('/', async (req, res) => {
 
 // Used when Finding a single game using title search on homepage
 router.get('/game/:id', async (req, res) => {
-  console.log(req, 'request')
   try {
     const gameData = await Games.findByPk(req.params.id, {
       include: [
@@ -45,50 +44,16 @@ router.get('/game/:id', async (req, res) => {
     });
 
     const game = gameData.get({ plain: true });
-    console.log(game, 'game result')
-    res.render('gamepage', {
+
+    res.render('gamePage', {
       ...game,
       logged_in: req.session.logged_in
     });
   } catch (err) {
-    console.log('got an error', err)
     res.status(500).json(err);
   }
-  console.log(req.params, "testing");
 });
 
-/*
-router.get('/game/:genre', async (req, res) => {
-  try {
-    const gameData = await Games.findAll({
-      where: req.params.genre,
-      order: ['title', 'ASC'],
-      raw: true,
-   });
-
-   let randindex = [];
-   
-   while(randindex.length < 5) {
-
-     const randnum = Math.floor(Math.random() * gameData.length);
-
-     if(!randindex.includes(randnum)) {
-      randindex.push(randnum)
-     };
-
-   };
-
-   const randomFiveGames = [gameData[randindex[0]], gameData[randindex[1]], gameData[randindex[2]], gameData[randindex[3]], gameData[randindex[4]]];
-
-   res.render('genreGames', {
-    ...randomFiveGames,
-    logged_in: req.session.logged_in
-   });
-
-  } catch (err) {
-    res.status(500).json(err)
-  }
-}); */
 
 router.get('/genre/:genre', async (req, res) => {
   try {
