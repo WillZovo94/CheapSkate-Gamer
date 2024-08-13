@@ -20,7 +20,7 @@
   <div class="new-review-form">
     <h2>Write a Review</h2>
     <form id="new-review-form">
-      <input type="hidden" name="games_id" value="{{id}}">
+      <input type="hidden" id ="game-id" name="games_id" value="{{id}}">
       <div>
         <label for="title">Title</label>
         <input type="text" id="review-title" name="title">
@@ -42,5 +42,5 @@
 <script src=".././js/gamepage.js"></script>
 
 {{#if logged_in}}
-<script src=".././js/logout.js"></script>
+  <script src=".././js/logout.js"></script>
 {{/if}}
