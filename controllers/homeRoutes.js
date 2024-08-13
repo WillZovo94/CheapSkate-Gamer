@@ -45,7 +45,7 @@ router.get('/game/:id', async (req, res) => {
 
     const game = gameData.get({ plain: true });
 
-    res.render('gamePage', {
+    res.render('gamepage', {
       ...game,
       logged_in: req.session.logged_in
     });
