@@ -54,6 +54,10 @@ router.get('/game/:id', async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4596b4c7438e41e0be76bb643aad1dba926e2950
 router.get('/genre/:genre', async (req, res) => {
   try {
     const gameGenreSearch = await Games.findAll({

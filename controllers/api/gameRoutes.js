@@ -30,8 +30,8 @@ router.get('/:id', async (req, res) => {
       console.log(err);
     }
   });
-
 router.post('/', async (req, res) => {
+  console.log(req.body);
     try {
         const gameData = await Games.findOne({
             where: {
@@ -44,7 +44,7 @@ router.post('/', async (req, res) => {
             res.status(404).json({ message: 'Could not find that game.'});
         };
 
-        res.status(200).json(gameData);
+        res.status(200).json(gameData)
     } catch (err) {
         res.status(500).json(err);
     };

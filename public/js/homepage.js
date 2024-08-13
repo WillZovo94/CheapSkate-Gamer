@@ -1,13 +1,16 @@
 // Handles searching a game by name
+
 const handleGameSearch = async (event) => {
     event.preventDefault();
     const titleSearch = document.querySelector('#title-search').value.trim();
-
+    // console.log(title);
     const response = await fetch('/api/games', {
         method: 'POST',
         body: JSON.stringify({ titleSearch }),
         headers: { 'Content-Type': 'application/json' },
     });
+
+// console.log(response);
 
     // Takes you to the game page of this specific game
     if (response.ok) {
