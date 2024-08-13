@@ -7,6 +7,7 @@ router.post('/', async (req, res) => {
   try {
     const newReview = await Reviews.create({
       ...req.body,
+      user_id: req.session.user_id
     });
 
     res.status(200).json(newReview);
