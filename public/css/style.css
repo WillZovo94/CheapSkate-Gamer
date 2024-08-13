@@ -408,3 +408,9 @@ body {
   justify-content: center;
   margin-bottom: 20px;
 }
+
+#genre-title {
+  font-weight: bolder;
+  font-size: 30px;
+  color: white;
+}
