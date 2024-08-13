@@ -414,3 +414,131 @@ body {
   font-size: 30px;
   color: white;
 }
+
+/* Centering the content */
+.game-details {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.game-details img {
+  max-width: 100%;
+  height: auto;
+  margin: 20px 0;
+  border-radius: 5px;
+}
+
+.game-details h1 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.game-details p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.game-details a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.game-details a:hover {
+  background-color: #0056b3;
+}
+
+.review {
+  background-color: #fff;
+  margin: 20px 0;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+  text-align: left;
+}
+
+.review h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.review p {
+  font-size: 1rem;
+  color: #666;
+  margin: 5px 0;
+}
+
+/* Form styling */
+.new-review-form {
+  background-color: #f1f1f1;
+  padding: 20px;
+  margin-top: 40px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.new-review-form h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.new-review-form label {
+  display: block;
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.new-review-form input,
+.new-review-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.new-review-form button {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.new-review-form button:hover {
+  background-color: #218838;
+}
+
+/* General styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e9ecef;
+  color: #333;
+}
+
+h1, h2, h3, p {
+  margin: 0;
+}
+
+.container {
+  padding: 20px;
+}
