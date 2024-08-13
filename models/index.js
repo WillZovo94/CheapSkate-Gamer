@@ -5,7 +5,7 @@ const Comments = require('./Comments');
 
 // Creates a relationship between User and Games model, with a "has many" relationship of the User to the Games.
 User.hasMany(Games, {
-  foreignKey: 'user_id',
+  foreignKey: 'games_id',
   onDelete: 'CASCADE'
 });
 
@@ -15,13 +15,20 @@ User.hasMany(Reviews, {
   onDelete: 'CASCADE'
 });
 
-/* If we pull the entire database from the api we probably won't need this association.
-/ User can still have many Games but Games won't need to belong to a specific User.
-// Creates a relationship between Games and User model, with a "belongs to" relationship of the Games to the User.
-Games.belongsTo(User, {
+// Creates a relationship between User and Comments model, with a "has many" relationship of the User to the User.
+User.hasMany(Comments, {
   foreignKey: 'user_id',
-    onDelete: 'CASCADE'
-}); */
+  onDelete: 'CASCADE'
+});
+
+//If we pull the entire database from the api we probably won't need this association.
+// User can still have many Games but Games won't need to belong to a specific User.
+// Creates a relationship between Games and User model, with a "belongs to" relationship of the Games to the User.
+/*Games.belongsTo(User, {
+  through: 'collection',
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE'
+});*/
 
 // Creates a relationship between Games and Reviews model, with a "has many" relationship of the Reviews to the Games.
 Games.hasMany(Reviews, {
@@ -50,6 +57,12 @@ Reviews.hasMany(Comments, {
 // Creates a relationship between Comments and Reviews model, with a "belongs to" relationship of the Comments to the Reviews.
 Comments.belongsTo(Reviews, {
   foreignKey: 'reviews_id',
+    onDelete: 'CASCADE'
+});
+
+// Creates a relationship between Comments and Users model, with a "belongs to" relationship of the Comments to the User.
+Comments.belongsTo(User, {
+  foreignKey: 'user_id',
     onDelete: 'CASCADE'
 });
 
