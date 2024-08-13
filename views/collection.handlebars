@@ -1,18 +1,12 @@
-<div style="text-align:center">
-  <div class="card">
-    <header class="card-header">
-      <h2 class="is-size-4 has-text-weight-bold">Games Collection for {{username}}</h2>
-    </header>
+
+<div id="genre-name">
+    <h1 id="genre-title">Your Collection</h1>
+</div>
+
+<ul id="genre-game-list">
     {{#each games}}
-    <div class="card">
-        <header class="card-header">
-            <h2 class="is-size-4 has-text-weight-bold">{{title}}</h2>
-        </header>
-    <div class="card-image">
-      <a href="{{url}}" target="_blank"><img src="{{thumbnail}}" alt="{{title}}" /></a>
-    </div>
-  </div>
-      {{/each}}
-  </div>
+    <li id="official-games">{{ title }} <a href="../game/{{ id }}"><img src="{{ thumbnail }}" alt="{{ title }} thumbnail"></a></li>
+    {{/each}}
+</ul>
 
 <script src="./js/homepage.js"></script>

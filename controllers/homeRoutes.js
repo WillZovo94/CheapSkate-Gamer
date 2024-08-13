@@ -4,46 +4,29 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    // If user is logged in finds the user data to display on the page
+    let userData = {};
     if (req.session.logged_in) {
-      const userData = await User.findByPk(req.session.user_id, {
+      userData = await User.findByPk(req.session.user_id, {
         raw: true,
         attributes: { exclude: ['password'] }
       });
+    }
 
-      const gamesData = await Games.findAll();
-
-      const games = gamesData.map((game) => game.get({ plain: true }));
-      // get random number for displaying random game image.
-      const randnum = Math.floor(Math.random() * games.length);
-
-      const randgame = games[randnum];
-
-      // Pass serialized data and session flag into template
-      res.render('homepage', {
-        ...randgame,
-        ...userData,
-        logged_in: req.session.logged_in
-      });
-    };
-
-    // If user is not logged in don't need to find user data
     const gamesData = await Games.findAll();
-
     const games = gamesData.map((game) => game.get({ plain: true }));
-    // get random number for displaying random game image.
     const randnum = Math.floor(Math.random() * games.length);
-
     const randgame = games[randnum];
 
-    // Pass serialized data and session flag into template
-    res.render('homepage', { 
+    const gatheredData = {
       ...randgame,
-      logged_in: req.session.logged_in 
-    });
+      ...userData,
+      logged_in: req.session.logged_in
+    };
+
+    res.render('homepage', gatheredData);
   } catch (err) {
     res.status(500).json(err);
-  }
+  };
 });
 
 // Used when Finding a single game using title search on homepage
@@ -74,6 +57,7 @@ router.get('/game/:id', async (req, res) => {
   console.log(req.params, "testing");
 });
 
+/*
 router.get('/game/:genre', async (req, res) => {
   try {
     const gameData = await Games.findAll({
@@ -104,7 +88,7 @@ router.get('/game/:genre', async (req, res) => {
   } catch (err) {
     res.status(500).json(err)
   }
-});
+}); */
 
 router.get('/genre/:genre', async (req, res) => {
   try {
@@ -117,7 +101,7 @@ router.get('/genre/:genre', async (req, res) => {
       res.status(404).json({ message: 'Could not find that genre.' });
     } else {
       res.render('genreGames', {
-        ...gameGenreSearch,
+        games: gameGenreSearch,
         logged_in: req.session.logged_in
       });
     }

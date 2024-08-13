@@ -17,7 +17,7 @@ const handleGameSearch = async (event) => {
         const data = await response.json();
 
         const gameId = data.id;
-        
+
         document.location.replace(`/game/${gameId}`);
     } else {
         alert(response.statusText);
@@ -27,8 +27,7 @@ const handleGameSearch = async (event) => {
 // Handles finding games based on genre
 const handleGenreSearch = async (event) => {
     event.preventDefault();
-    const genreSearch = document.querySelector('#genre-search').value;
-
+    const genreSearch = document.querySelector('#genre-search').value.trim();
     // takes you to a page that shows multiple games of this genre
     document.location.replace(`/genre/${genreSearch}`);
 };
