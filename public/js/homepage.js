@@ -6,12 +6,16 @@ const handleGameSearch = async (event) => {
     const response = await fetch('/api/games', {
         method: 'POST',
         body: JSON.stringify({ titleSearch }),
-        header: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json' },
     });
 
     // Takes you to the game page of this specific game
     if (response.ok) {
-        document.location.replace(`/game/${response.id}`);
+        const data = await response.json();
+
+        const gameId = data.id;
+
+        document.location.replace(`/game/${gameId}`);
     } else {
         alert(response.statusText);
     }
@@ -20,8 +24,7 @@ const handleGameSearch = async (event) => {
 // Handles finding games based on genre
 const handleGenreSearch = async (event) => {
     event.preventDefault();
-    const genreSearch = document.querySelector('#genre-search').value;
-
+    const genreSearch = document.querySelector('#genre-search').value.trim();
     // takes you to a page that shows multiple games of this genre
     document.location.replace(`/genre/${genreSearch}`);
 };
