@@ -26,7 +26,7 @@ Christopher Glenn: [GitHub Link](https://github.com/TalanvorD)
 
 Aaron Richter: [GitHub Link](https://github.com/anrichter2)
 
-Charles Thao: [GitHub Link](https://github.com/PengsueT)
+Pengsue Thao: [GitHub Link](https://github.com/PengsueT)
 
 Caden Carlson: [GitHub Link](https://github.com/Cadcar01)
 
