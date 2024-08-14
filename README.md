@@ -26,7 +26,7 @@ Christopher Glenn: [GitHub Link](https://github.com/TalanvorD)
 
 Aaron Richter: [GitHub Link](https://github.com/anrichter2)
 
-Pengsue Thao: [GitHub Link](https://github.com/PengsueT)
+Charles Thao: [GitHub Link](https://github.com/PengsueT)
 
 Caden Carlson: [GitHub Link](https://github.com/Cadcar01)
 
@@ -48,4 +48,4 @@ N/A
 
 [GitHub Repo](https://github.com/WillZovo94/CheapSkate-Gamer)
 
-[Render URL]()
+[Render URL](https://cheapskate-gamer.onrender.com/)
