@@ -31,10 +31,6 @@ User.init(
     collection: {
       type: DataTypes.ARRAY(DataTypes.INTEGER),
       defaultValue: [],
-      /*references: {
-        model: 'games',
-        key: 'id',
-      },*/
     },
     password: {
       type: DataTypes.STRING,

@@ -10,8 +10,6 @@ const handleGameSearch = async (event) => {
         headers: { 'Content-Type': 'application/json' },
     });
 
-// console.log(response);
-
     // Takes you to the game page of this specific game
     if (response.ok) {
         const data = await response.json();
