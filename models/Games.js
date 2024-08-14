@@ -35,14 +35,6 @@ Games.init(
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    /* If we pull the entire database from the api we probably won't need this
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'user',
-        key: 'id',
-      },
-    }, */
   },
   {
     sequelize,
