@@ -9,7 +9,7 @@ const { User, Games, Reviews, Comments } = require('./models'); // Seeding the d
 const userData = require('./seeds/userData.json');
 const reviewsData = require('./seeds/reviewsData.json');
 const commentsData = require('./seeds/commentsData.json');
-const gamesApiData = require('./seeds/gamesApiData.json'); // Used for local testing
+// const gamesApiData = require('./seeds/gamesApiData.json'); // Used for local testing
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -70,9 +70,9 @@ const seedDatabase = async () => { // Seeds the database with either the stored 
     returning: true,
   });
 
-  // const liveGameList = await fetchGames();
+  const liveGameList = await fetchGames();
   
- for (const games of gamesApiData) {
+ for (const games of liveGameList) {
     await Games.create({games,
       api_id: games.id,
       title: games.title,

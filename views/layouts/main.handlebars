@@ -42,7 +42,7 @@
           {{#if logged_in}}
           <div id="active-user">
             <!-- <div id="profile-pic"></div> -->
-            <h2 id="username">{{username}}</h2>
+            <a href="/collection"><h2 id="username">{{username}}</h2></a>
           </div>
             <button id="logout-btn">Logout</button>
           {{else}}
@@ -55,7 +55,20 @@
       {{{ body }}}
     </main>
     <footer id="footer">
-      
+      <div id="footer1">
+        <h2 id="madeBy">MADE BY</h2>
+        <div id="name">
+          <h2 class="ourName">William</h2>
+          <h2 class="ourName">Christopher</h2>
+          <h2 class="ourName">Aaron</h2>
+          <h2 class="ourName">Caden</h2>
+          <h2 class="ourName">Charles</h2>
+        </div>
+      </div>
+      <div id="credit">
+        <h2>Data Provided By</h2>
+        <a id="footerLink" href="https://www.freetogame.com">https://www.freetogame.com</a>
+      </div>
     </footer>
   </div>
 
